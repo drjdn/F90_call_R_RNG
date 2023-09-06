@@ -35,7 +35,7 @@ The only files that are of interest to package maintainers are `wrap.c` which
 wraps `R`'s basic RNG code and `rrandom.f90` that has an interface to call `R`'s
 RNG via a subroutine called `r_random_number`.  There is a `Fortran` interface that
 makes this operate like `Fortran`'s built in `random_number` subroutine for
-convenience.  The rest just builds the code an runs the example.
+convenience.  The rest just builds the code and runs the example.
 
 License
 -------
