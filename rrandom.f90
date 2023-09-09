@@ -11,10 +11,10 @@ module rrand
   use dtype
   implicit none
 
-  private:: ranu_s, ranu_v
+  private:: ranu_s, ranu_v, ranu_m
   
   interface r_random_number
-     module procedure ranu_s, ranu_v
+     module procedure ranu_s, ranu_v, ranu_m
   end interface r_random_number
 
 contains
@@ -46,4 +46,16 @@ contains
     end do
   end subroutine ranu_v
 
+  subroutine ranu_m(rv)
+    implicit none
+    real(dp), dimension(:,:), intent(inout):: rv
+    real(dp):: runi
+    integer:: i, j
+    do j=1,size(rv,2)
+       do i=1,size(rv,1)
+          rv(i,j) = runi()
+       end do
+    end do
+  end subroutine ranu_m
+  
 end module rrand
